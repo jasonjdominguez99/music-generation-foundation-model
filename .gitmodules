@@ -1,3 +1,6 @@
 [submodule "polyphonic-chord-texture-disentanglement"]
 	path = polyphonic-chord-texture-disentanglement
 	url = git@github.com:jasonjdominguez99/polyphonic-chord-texture-disentanglement.git
+[submodule "ec-squared-vae"]
+	path = ec-squared-vae
+	url = git@github.com:jasonjdominguez99/Deep-Music-Analogy-Demos.git
