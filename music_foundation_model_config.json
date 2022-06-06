@@ -1,0 +1,4 @@
+{
+    "ec_squared_vae_model_load_path": "/ec-squared-vae/params/cdvae_2bar.pt",
+    "poly_chord_model_load_path": ""
+}
