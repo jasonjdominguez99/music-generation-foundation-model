@@ -11,17 +11,23 @@
 import json
 import torch
 
-from ec_squared_vae.code.ec_squared_vae import ECSquaredVae
+from ec_squared_vae.code.ec_squared_vae import ECSquaredVAE
 
 
-def load_ec_squared_vae(load_path, config_file_path):
+def load_ec_squared_vae(config_file_path):
     with open(config_file_path) as f:
         args = json.load(f)
     
-    load_path = "ec-squared-vae/params/{}".format(args["name"])
+    load_path = "ec-squared-vae/params/{}.pt".format(args["name"])
 
-    model = 
+    model = ECSquaredVAE(
+        args["roll_dim"], args["hidden_dim"], args["rhythm_dim"], 
+        args["condition_dim"], args["pitch_dim"],
+        args["rhythm_dim"], args["time_step"]
+    )
     model.load_state_dict(torch.load(load_path))
+
+    return model
 
 
 def load_pre_trained_models(config_file_paths):
