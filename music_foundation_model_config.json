@@ -1,4 +1,4 @@
 {
     "ec_squared_vae_model_load_path": "/ec-squared-vae/params/cdvae_2bar.pt",
-    "poly_chord_model_load_path": ""
+    "poly_chord_model_load_path": "/polyphonic_chord_texture_disentanglement/result_DATE_TIME%H%M%S/models/disvae-nozoth_final.pt"
 }

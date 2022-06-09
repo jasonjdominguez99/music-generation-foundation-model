@@ -12,6 +12,12 @@ from torch import nn
 
 
 # class definitions
-class FoundationModel(nn.Module):
-    def __init__(self, ec_squared_vae_model, poly_chord_model):
-        super(FoundationModel, self).__init__()
+class MusicFoundationModel(nn.Module):
+    def __init__(self, melody_model, harmony_model):
+        super(MusicFoundationModel, self).__init__()
+        self.melody_model = melody_model
+        self.harmony_model = harmony_model
+        
+        # TODO: define the transformer which uses the pre-trained models
+        # TODO: implement training method
+        # TODO: implement inference method
