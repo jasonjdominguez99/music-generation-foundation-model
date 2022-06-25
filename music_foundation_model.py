@@ -9,6 +9,7 @@
 
 # imports
 from torch import nn
+from transformer import VanillaTransformerModel
 
 
 # class definitions
@@ -19,5 +20,7 @@ class MusicFoundationModel(nn.Module):
         self.harmony_model = harmony_model
         
         # TODO: define the transformer which uses the pre-trained models
-        # TODO: implement training method
-        # TODO: implement inference method
+        self.transformer = VanillaTransformerModel()
+
+    # TODO: implement training method
+    # TODO: implement inference method
