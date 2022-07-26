@@ -62,18 +62,20 @@ def load_pre_trained_models(config_file_paths):
     return ec_squared_vae_model, poly_chord_model
 
 
-def train_foundation_model(model):
+def train(model):
     # TODO: implement the logic for training the foundation model
     pass
 
 
 def main():
     foundation_model_config_file_path = "music_foundation_model_config.json"
+    
+    with open(foundation_model_config_file_path) as f:
+        args = json.load(f)
+     
     pre_trained_models_config_paths = {
-        "ec_squared_vae": "ec_squared_vae/code\
-                           /ec_squared_vae_model_config.json",
-        "poly_chord": "polyphonic_chord_texture_disentanglement\
-                       /poly_chord_model_config.json"
+        "ec_squared_vae": args["ec_squared_vae_model_config_path"],
+        "poly_chord": args["poly_chord_model_config_path"]
     }
 
     melody_model, harmony_model = load_pre_trained_models(
@@ -81,8 +83,13 @@ def main():
     )
 
     fdn_model = MusicFoundationModel(
-        melody_model, harmony_model
+        melody_model, harmony_model, args["ntokens"],
+        args["emsize"], args["d_hid"], args["nlayers"],
+        args["nhead"], args["dropout"]
     )
+    
+    train(fdn_model)
 
 if __name__ == "__main__":
     main()
+    

@@ -14,13 +14,18 @@ from transformer import VanillaTransformerModel
 
 # class definitions
 class MusicFoundationModel(nn.Module):
-    def __init__(self, melody_model, harmony_model):
+    def __init__(self, melody_model, harmony_model, ntokens,
+                 emsize, d_hid, nlayers, nhead, dropout):
         super(MusicFoundationModel, self).__init__()
         self.melody_model = melody_model
         self.harmony_model = harmony_model
         
         # TODO: define the transformer which uses the pre-trained models
-        self.transformer = VanillaTransformerModel()
+        self.transformer = VanillaTransformerModel(
+            ntokens, emsize, nhead, d_hid, nlayers, dropout
+        )
 
-    # TODO: implement training method
+    # TODO: implement training method    
     # TODO: implement inference method
+    def forward():
+        pass
