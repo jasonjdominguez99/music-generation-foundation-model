@@ -16,7 +16,7 @@ from transformer import VanillaTransformerModel
 class MusicFoundationModel(nn.Module):
     def __init__(self, melody_model, harmony_model, ntokens,
                  emsize, d_hid, nlayers, nhead, dropout):
-        super(MusicFoundationModel, self).__init__()
+        super().__init__()
         self.melody_model = melody_model
         self.harmony_model = harmony_model
         
@@ -27,5 +27,5 @@ class MusicFoundationModel(nn.Module):
 
     # TODO: implement training method    
     # TODO: implement inference method
-    def forward():
-        pass
+    def forward(self, melody, pr_mat, condition):
+        z_chd, z_txt = self.harmony_model()
